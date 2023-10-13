@@ -1,0 +1,46 @@
+﻿{
+  "Members of the Governing Council": {
+    "fields": ["Sr No.", "Name and Designation", "Governing Council"],
+    "data": [
+      [
+        "1",
+        "Dr. V P Venugopalan,  Raja Ramanna Fellow, Chairman, AEES",
+        "Chairman"
+      ],
+      ["2", "Joint Secretary (Dealing with AEES), DAE", "Member"],
+      ["3", "Joint Secretary (Finance), DAE", "Member"],
+      ["4", "Director DCS & EM, Mumbai", "Member"],
+      ["5", "", "Member"],
+      ["6", "Chairman & Chief Executive, HWB, Mumbai", "Member"],
+      [
+        "7",
+        "Centre Director, Homi Bhabha Centre for Science Education, Mumbai",
+        "Member"
+      ],
+      [
+        "8",
+        "Dr. Vimal Kumar Jain, UM-DAE Centre for Excellence in Basic Sciences, Mumbai",
+        "Member"
+      ],
+      [
+        "9",
+        "Dr. Asha Banu Soletti, Professor, Centre for Health and Mental Health, School of Social Work(SSW) TISS Mumbai",
+        "Member"
+      ],
+      ["10", "", "Member"],
+      [
+        "11",
+        "Registrar, Homi Bhabha National Institute (HBNI), Mumbai",
+        "Member"
+      ],
+      ["12", "A nominee of CBSE, Regional Office, Pune", "Member"],
+      ["13", "A nominee of Kendriya Vidyalaya Sangathan", "Member"],
+      [
+        "14",
+        "Shri Uday Madhavrao Shinde, IFA, NRB Mumbai",
+        "Member & Treasurer"
+      ],
+      ["15", "Shri P Goverdhan, Secretary, AEES", "Non-Member Secretary"]
+    ]
+  }
+}

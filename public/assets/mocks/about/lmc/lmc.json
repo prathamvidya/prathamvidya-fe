@@ -1,0 +1,47 @@
+{
+  "": {
+    "fields": ["Sr No.", "Name", "Designation", "LMC Role"],
+    "data": [
+      [
+        "1",
+        "Shri. Desh Deepak Jain",
+        "Station Director, NAPS Narora",
+        "Chairman"
+      ],
+      [
+        "2",
+        "Shri. Sudhir B. Shelke",
+        "Chief Superintendent, NAPS Narora",
+        "Member"
+      ],
+      [
+        "3",
+        "Shri. R. Murali",
+        "Maintenance Superintendent, NAPS Narora",
+        "Member"
+      ],
+      ["4", "Shri. S K Kaware", "Training Supdt. NAPS Narora", "Member"],
+      ["5", "Shri. Omprakash Sutar", "Head (F & A), NAPS Narora", "Member"],
+      ["6", "Shri. M. P. Rath", "DGM (HR), NAPS Narora", "Member"],
+      ["7", "Shri. H. C. Birla", "DGM(CMM), NAPS Narora", "Member"],
+      [
+        "8",
+        "Shri. Nagendra Devrari",
+        "Sr. Commandant, CISF Unit,NAPS Narora",
+        "Member"
+      ],
+      [
+        "9",
+        "Dr. Manju Sati",
+        "MO/G, NAPS Hospital, Narora",
+        "Parent Representative"
+      ],
+      [
+        "10",
+        "Shri. Mahendra Kumar Meena",
+        "Principal, AECS Narora",
+        "Member Secretary"
+      ]
+    ]
+  }
+}

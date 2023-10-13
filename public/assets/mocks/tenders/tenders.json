@@ -1,0 +1,47 @@
+{
+  "Current Tenders": [
+    {
+      "title": "Tender1",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Tender2",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Tender3",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Tender4",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Tender5",
+      "target": "https://some-link"
+    }
+  ],
+
+  "Previous Tenders": [
+    {
+      "title": "Tender1",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Tender2",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Tender3",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Tender4",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Tender5",
+      "target": "https://some-link"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "2018": [
+    {
+      "title": "Event1",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Event2",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Event3",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Event4",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Event5",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Event6",
+      "target": "https://some-link"
+    }
+  ],
+
+  "2017": [
+    {
+      "title": "Event1",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Event2",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Event3",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Event4",
+      "target": "https://some-link"
+    },
+    {
+      "title": "Event5",
+      "target": "https://some-link"
+    }
+  ]
+}
