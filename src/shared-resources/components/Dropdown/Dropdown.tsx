@@ -26,7 +26,7 @@ const Dropdown: React.FC<Props> = (props) => {
       {/* Dropdown */}
       {multiLevel ? (
         <div
-          className={`flex flex-col border-y dark:border-slate-100/20 border-slate-900/20  text-center space-y-2 transition-all duration-300 overflow-hidden ${
+          className={`flex flex-col border-y border-secondaryLight/50 dark:border-secondaryDark/50 text-center space-y-2 transition-all duration-300 overflow-hidden ${
             dropdown ? 'h-fit my-2 py-2' : 'h-0 border-y-0'
           } ${className}`}
         >
@@ -36,7 +36,7 @@ const Dropdown: React.FC<Props> = (props) => {
         <div ref={dropdownWrapOne}>
           <div
             ref={dropdownWrapTwo}
-            className={`absolute flex flex-col text-center p-2 space-y-2 rounded-lg bg-slate-400/40 dark:bg-slate-700/70 backdrop-blur z-50 transition-all duration-300 left-1/2 -translate-x-1/2 top-[175%] shadow-nft ${
+            className={`absolute flex flex-col text-center p-2 space-y-2 rounded-lg bg-primaryLight/40 dark:bg-primaryDark/40 backdrop-blur-3xl z-50 transition-all duration-300 left-1/2 -translate-x-1/2 top-[200%] shadow-nft dark:shadow-nftDark ${
               dropdown
                 ? 'visible opacity-100 scale-100'
                 : 'invisible scale-75 opacity-0'

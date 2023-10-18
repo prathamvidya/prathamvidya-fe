@@ -28,6 +28,7 @@ const NavBar: React.FunctionComponent<Props> = () => {
 
   const navbarRef = useRef<HTMLDivElement>(null);
   const [totalAvailableWidth, setTotalAvailableWidth] = useState<number>();
+  const [isNavbarSticky, setIsNavbarSticky] = useState<boolean>(false);
 
   const router = useRouter();
   const [selected, setSelected] = useState<string>(router.pathname);
@@ -51,50 +52,51 @@ const NavBar: React.FunctionComponent<Props> = () => {
           text: 'Our Mission',
         },
         {
-          url: '/about/aees',
-          text: 'About AEES',
-        },
-        {
           url: '/about/principal',
-          text: 'Principal',
+          text: "Director's Note",
         },
         {
-          url: '/about/staff',
-          text: 'Staff',
+          url: '_blank/citizen',
+          text: 'Citizen Charter',
         },
         {
-          url: '/about/strength',
-          text: 'Strength',
-        },
-        {
-          url: '/about/sac',
-          text: 'SAC',
-        },
-        {
-          url: '/about/lmc',
-          text: 'LMC',
+          url: '_blank/rti',
+          text: 'RTI',
         },
       ],
     },
     {
-      url: '/admissions',
-      text: 'Admissions',
+      url: '/schemes',
+      text: 'Schemes',
     },
     {
-      url: '/downloads',
-      text: 'Downloads',
+      url: '/apply-process',
+      text: 'Apply',
     },
     {
-      url: '/gallery',
-      text: 'Gallery',
+      text: 'Payments',
+      subMenus: [
+        {
+          url: 'payments/donate',
+          text: 'Contribute',
+        },
+        {
+          url: '/payments/exam-fees',
+          text: 'Exam Fees',
+        },
+      ],
+    },
+    {
+      url: '/vacancies',
+      text: 'Vacancies',
     },
     {
       url: '/notices',
       text: 'Notices',
     },
     {
-      url: '/tenders',
-      text: 'Tenders',
+      url: '/gallery',
+      text: 'Gallery',
     },
   ];
 
@@ -103,7 +105,22 @@ const NavBar: React.FunctionComponent<Props> = () => {
     // Dependency of mounted is needed to rerender after the UI has been mounted to get width from it
   }, [mounted, navbarRef?.current?.offsetWidth]);
 
-  const widthOfOneLink = 112;
+  useEffect(() => {
+    const isSticky = () => {
+      if (navbarRef?.current?.getBoundingClientRect?.()?.top === 0) {
+        setIsNavbarSticky(true);
+      } else {
+        setIsNavbarSticky(false);
+      }
+    };
+    window.addEventListener('scroll', isSticky);
+
+    return () => {
+      window.removeEventListener('scroll', isSticky);
+    };
+  }, []);
+
+  const widthOfOneLink = 136;
   const numberOfLinksToShow =
     (totalAvailableWidth || widthOfOneLink) / widthOfOneLink - 2;
   const showButton: boolean = numberOfLinksToShow < navLinks.length;
@@ -125,10 +142,14 @@ const NavBar: React.FunctionComponent<Props> = () => {
                   setSelected(link.url);
                 }
               }}
-              className={`w-[7rem] flex-shrink-0 cursor-pointer my-1 `}
+              className={`w-[8.5rem] flex-shrink-0 cursor-pointer my-1 `}
             >
               <span
-                className={`duration-500 bg-transparent font-bold dark:font-normal px-1 text-ellipsis inline-block text-xs tracking-widest transition-all text-slate-900 dark:text-slate-100 hover:text-opacity-80 dark:hover:text-opacity-80 uppercase border-b whitespace-nowrap  first-letter:text-base hover:border-slate-900 dark:hover:border-slate-100 hover:border-opacity-80  ${
+                className={`duration-500 w-fit bg-transparent font-bold dark:font-normal px-1 inline-block text-xs tracking-widest transition-all ${
+                  isNavbarSticky && !multiLevelDropdown
+                    ? 'text-primaryLight dark:text-primaryDark'
+                    : `text-secondaryLight dark:text-secondaryDark`
+                } uppercase border-b whitespace-nowrap first-letter:text-base hover:border-secondaryLight dark:hover:border-secondaryDark hover:border-opacity-80  ${
                   selected === link.url
                     ? 'text-opacity-100 border-transparent'
                     : 'text-opacity-100 border-transparent'
@@ -143,9 +164,15 @@ const NavBar: React.FunctionComponent<Props> = () => {
         ) : (
           <Dropdown
             DropdownButton={
-              <div className='flex items-center'>
+              <div
+                className={`flex items-center ${
+                  isNavbarSticky && !multiLevelDropdown
+                    ? 'text-primaryLight dark:text-primaryDark'
+                    : `text-secondaryLight dark:text-secondaryDark`
+                }`}
+              >
                 <span
-                  className={`duration-500 bg-transparent font-bold dark:font-normal px-1 text-ellipsis inline-block text-xs tracking-widest transition-all text-slate-900 dark:text-slate-100 hover:text-opacity-80 dark:hover:text-opacity-80 uppercase  whitespace-nowrap first-letter:text-base text-opacity-100 `}
+                  className={`duration-500 bg-transparent font-bold dark:font-normal px-1 truncate w-full inline-block text-xs tracking-widest transition-all uppercase whitespace-nowrap first-letter:text-base text-opacity-100 `}
                 >
                   {link.text}
                 </span>
@@ -171,10 +198,10 @@ const NavBar: React.FunctionComponent<Props> = () => {
                       setSelected(submenu.url);
                     }
                   }}
-                  className={`w-[7rem] flex-shrink-0 cursor-pointer my-1 `}
+                  className={`w-[8.5rem] flex-shrink-0 cursor-pointer my-1 `}
                 >
                   <span
-                    className={`duration-500 bg-transparent font-bold dark:font-normal px-1 text-ellipsis inline-block text-xs tracking-widest transition-all text-slate-900 dark:text-slate-100 hover:text-opacity-80 dark:hover:text-opacity-80 uppercase border-b whitespace-nowrap  first-letter:text-base hover:border-slate-900 dark:hover:border-slate-100 hover:border-opacity-80  ${
+                    className={`duration-500 bg-transparent font-bold dark:font-normal px-1 w-fit inline-block text-xs tracking-widest transition-all text-secondaryLight dark:text-secondaryDark uppercase border-b whitespace-nowrap  first-letter:text-base hover:border-secondaryLight dark:hover:border-secondaryDark hover:border-opacity-80  ${
                       selected === submenu.url
                         ? 'text-opacity-100 border-transparent'
                         : 'text-opacity-100 border-transparent'
@@ -190,7 +217,7 @@ const NavBar: React.FunctionComponent<Props> = () => {
           </Dropdown>
         )
       ),
-    [selected, totalAvailableWidth]
+    [selected, totalAvailableWidth, isNavbarSticky]
   );
 
   // useEffect only runs on the client, so now we can safely show the UI
@@ -205,13 +232,13 @@ const NavBar: React.FunctionComponent<Props> = () => {
   return (
     <>
       {/* Header */}
-      <header className='flex items-center justify-between w-full '>
+      <header className='flex items-center justify-between w-full'>
         <div className='flex items-center'>
           {/* Logo */}
           <span className='flex-shrink-0 px-4 py-8 md:px-10'>
-            <div className='absolute bg-[url("/assets/img/aecs-logo.png")] flex items-center justify-center bg-cover blur-2xl opacity-75 h-[3rem] w-[3rem] md:h-[6.25rem] md:w-[6.25rem] ' />
+            <div className='absolute bg-[url("/assets/img/PrathamVidyaLogo.png")] flex items-center justify-center bg-cover blur-2xl opacity-75 h-[3rem] w-[3rem] md:h-[6.25rem] md:w-[6.25rem] ' />
             <Image
-              src='/assets/img/aecs-logo.png'
+              src='/assets/img/PrathamVidyaLogo.png'
               alt=''
               height={isScreenMdPlus ? 100 : 48}
               width={isScreenMdPlus ? 100 : 48}
@@ -220,12 +247,10 @@ const NavBar: React.FunctionComponent<Props> = () => {
             />
           </span>
           {/* Heading */}
-          <div className='py-1 pl-6 text-xs tracking-widest transition duration-500 border-l text-slate-900 border-slate-900 dark:text-slate-100 dark:border-slate-100 md:py-3 border-opacity-20 md:text-base'>
-            <div className='font-bold'>
-              ATOMIC ENERGY CENTRAL SCHOOL, NARORA
-            </div>
-            <div className='mt-2 font-bold'>
-              परमाणु ऊर्जा केन्द्रीय विद्यालय, नरौरा
+          <div className='py-1 pl-6 text-base transition duration-500 border-l text-secondaryLight border-secondaryLight dark:text-secondaryDark dark:border-secondaryDark md:py-3 border-opacity-20 md:text-2xl'>
+            <div className='font-bold tracking-wide'>Pratham Vidya</div>
+            <div className='text-xs md:text-base'>
+              Unlocking Bright Future Of India
             </div>
           </div>
         </div>
@@ -241,10 +266,16 @@ const NavBar: React.FunctionComponent<Props> = () => {
       </header>
 
       {/* Navbar */}
-      <nav className='relative z-50 mx-5 my-2 rounded-full shadow-lg md:mx-10 bg-slate-700/40 dark:bg-slate-700/50'>
+      <nav
+        className={`sticky top-0 z-50 rounded-md transition-[background-color] duration-500 ${
+          isNavbarSticky
+            ? 'bg-secondaryLight dark:bg-secondaryDark shadow-nft dark:shadow-nftDark text-primaryLight dark:text-primaryDark'
+            : 'bg-primaryDark/[15%] dark:bg-primaryLight/10'
+        }`}
+      >
         <div
           ref={navbarRef}
-          className='flex items-center justify-around px-5 py-1 space-x-2 text-center rounded-full'
+          className='flex items-center justify-around px-5 py-4 space-x-2 text-center rounded-full'
         >
           {slicedLinks(0, numberOfLinksToShow)}
           {/* Dropdown Button */}

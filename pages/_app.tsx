@@ -10,13 +10,14 @@ class WrappedApp extends App<AppInitialProps> {
   public render() {
     const { Component, pageProps } = this.props;
     return (
-      <ThemeProvider attribute='class' enableSystem={false} defaultTheme='dark'>
-        <div className='bg-no-repeat bg-[url("/assets/img/dark-background-blue.avif")]  lg:pt-0'>
-          <img
+      <ThemeProvider attribute='class' enableSystem={false}>
+        {/* bg-[url("/assets/img/dark-background-blue.avif")]: Add to below div */}
+        <div className='bg-no-repeat lg:pt-0'>
+          {/* <img
             src='/assets/img/dark-background-blue-2.avif'
             className='absolute top-0 w-full h-full opacity-50 -z-10 lg:pt-0 blur-3xl'
             alt=''
-          />
+          /> */}
           <AppComponentWrapper>
             <div className='xl:mx-auto'>
               <Component {...pageProps} />

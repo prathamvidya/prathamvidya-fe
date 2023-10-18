@@ -60,8 +60,8 @@ const ImageSlideshow: React.FunctionComponent<SlideshowProps> = (props) => {
         )}
         <div
           className={`${
-            ambientMode ? 'absolute inset-0' : ''
-          } overflow-hidden rounded-lg`}
+            ambientMode ? 'absolute inset-0' : 'relative w-full h-full'
+          } overflow-hidden rounded-lg shadow-nft dark:shadow-nftDark`}
           onMouseEnter={() => {
             setHovering(true);
           }}

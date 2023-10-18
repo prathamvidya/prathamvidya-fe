@@ -30,7 +30,7 @@ const ListingByJsonFile: React.FC<ListingByJsonFileProps> = (props) => {
                       role='link'
                       target='_blank'
                       tabIndex={0}
-                      className='text-blue-600 dark:text-yellow-400 hover:underline'
+                      className='text-blue-600 dark:text-cyan-500 hover:underline'
                     >
                       View
                     </a>

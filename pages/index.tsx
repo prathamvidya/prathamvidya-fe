@@ -35,12 +35,11 @@ const Home: NextPage = () => {
   return (
     <>
       <GenericSetHead
-        title='Home, AECS Narora'
+        title='Home, Pratham Vidya'
         metadata={[
           {
             property: 'description',
-            content:
-              'This is the home page of Atomic Energy Central School, Narora Website',
+            content: 'Pratham Vidya: NGO Scholarship Program',
           },
           {
             property: 'robots',
@@ -52,14 +51,19 @@ const Home: NextPage = () => {
           },
         ]}
       />
-      <div className='p-4 md:p-10'>
-        <div className='flex flex-col space-y-10 lg:space-y-0 lg:space-x-10 lg:flex-row'>
-          <div className='w-full lg:w-3/5'>
-            <ImageSlideshow images={images} ambientMode animate />
+      <div className='px-3 py-6 md:px-10 md:py-10'>
+        <div className='flex flex-col space-y-6 md:space-y-10'>
+          <div className='w-full'>
+            <ImageSlideshow
+              images={images}
+              animate
+              aspectRatioClassname='aspect-[16/5]'
+            />
           </div>
-          <div className='flex flex-col w-full p-5 space-y-5 rounded-lg lg:w-2/5 shadow-nft bg-slate-200/40 dark:bg-slate-800/50'>
+          <div className='flex flex-col w-full p-5 space-y-5 border rounded-lg shadow-nft dark:shadow-nftDark lg:w-2/5 dark:border-primaryLight/20 border-primaryDark/20 '>
             <div className='text-lg font-bold tracking-wider text-center'>
-              Notice Board
+              <div>News / Events</div>
+              <div className='text-sm'>(What&apos;s New!)</div>
             </div>
             {latestAnnouncements &&
               latestAnnouncements.map((item) => (
@@ -73,7 +77,7 @@ const Home: NextPage = () => {
               <a
                 role='link'
                 tabIndex={0}
-                className='text-right text-blue-600 dark:text-yellow-400 hover:underline'
+                className='text-right text-blue-600 dark:text-cyan-500 hover:underline'
               >
                 View All
               </a>

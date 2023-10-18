@@ -15,10 +15,15 @@ interface DatedListCardProps {
 const DatedListCard: React.FC<DatedListCardProps> = (props) => {
   const { categoryKey, item, singleLineTitle } = props;
   return (
-    <BrandCardWithShadow className='!flex-row !justify-start rounded-lg text-slate-900 dark:text-slate-100 shadow-nft bg-slate-400/40 dark:bg-slate-700/50 !p-4'>
+    <BrandCardWithShadow
+      className='!flex-row !justify-start rounded-lg text-secondaryLight dark:text-secondaryDark bg-primaryLight dark:bg-primaryDark dark:hover:bg-primaryLight/5 hover:bg-primaryDark/5 transition-colors duration-500 border-primaryDark/20 dark:border-primaryLight/20 border !p-4'
+      onClick={() => {
+        window.open(item.target, '_blank');
+      }}
+    >
       <div className='flex flex-col justify-between w-full space-y-4'>
         {categoryKey && (
-          <div className='px-4 py-1 text-sm rounded-full w-fit text-slate-100 dark:text-slate-900 bg-slate-900 dark:bg-slate-100'>
+          <div className='px-4 py-1 text-sm rounded-full w-fit text-primaryLight dark:text-primaryDark bg-primaryDark dark:bg-primaryLight'>
             {categoryKey}
           </div>
         )}
@@ -39,7 +44,7 @@ const DatedListCard: React.FC<DatedListCardProps> = (props) => {
               role='link'
               target='_blank'
               tabIndex={0}
-              className='text-blue-600 dark:text-yellow-400 hover:underline'
+              className='text-blue-600 dark:text-cyan-500 hover:underline'
             >
               More...
             </a>
