@@ -267,15 +267,15 @@ const NavBar: React.FunctionComponent<Props> = () => {
 
       {/* Navbar */}
       <nav
-        className={`sticky top-0 z-50 rounded-md transition-[background-color] duration-500 ${
+        className={`sticky top-0 z-50 transition-[background-color] duration-500 ${
           isNavbarSticky
-            ? 'bg-secondaryLight dark:bg-secondaryDark shadow-nft dark:shadow-nftDark text-primaryLight dark:text-primaryDark'
-            : 'bg-primaryDark/[15%] dark:bg-primaryLight/10'
+            ? 'bg-secondaryLight dark:bg-secondaryDark shadow-nft dark:shadow-nftDark text-primaryLight dark:text-primaryDark rounded-b-md'
+            : 'bg-primaryDark/[15%] dark:bg-primaryLight/10 rounded-md'
         }`}
       >
         <div
           ref={navbarRef}
-          className='flex items-center justify-around px-5 py-4 space-x-2 text-center rounded-full'
+          className='flex items-center justify-around px-5 py-4 space-x-2 text-center'
         >
           {slicedLinks(0, numberOfLinksToShow)}
           {/* Dropdown Button */}

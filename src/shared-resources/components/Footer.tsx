@@ -71,7 +71,8 @@ const Footer: React.FunctionComponent<Props> = () => (
         </div>
       </div>
       <div className='px-5 py-3 my-4 text-sm text-center rounded-md bg-primaryDark/20 dark:bg-primaryLight/10 backdrop-blur'>
-        Copyright © 2023 Pratham Vidya. All rights reserved.
+        Copyright © {new Date().getFullYear()} Pratham Vidya. All rights
+        reserved.
       </div>
       <div className='self-end text-xs font-bold text-center dark:font-normal'>
         Website designed by{' '}
