@@ -1,0 +1,73 @@
+{
+  "id": "notice",
+  "label": "Notice",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID",
+          "placeholder": "Unique ID for the notice"
+        },
+        "type": "UID"
+      },
+      "type": {
+        "type": "Select",
+        "config": {
+          "label": "Type",
+          "placeholder": "Type of notice",
+          "options": ["Announcements & Circulars", "Public Notices"],
+          "default_value": "Announcements & Circulars"
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": "Title of the notice"
+        }
+      },
+      "date_time": {
+        "type": "Timestamp",
+        "config": {
+          "label": "Date Time",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "Description of the notice.",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "attachments": {
+        "type": "Group",
+        "config": {
+          "label": "Attachments",
+          "fields": {
+            "attachment_title": {
+              "type": "Text",
+              "config": {
+                "label": "Attachment Title",
+                "placeholder": "Name of the attachment"
+              }
+            },
+            "document_link": {
+              "type": "Link",
+              "config": {
+                "label": "Document Link",
+                "placeholder": "Link to the document",
+                "select": "media"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

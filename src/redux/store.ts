@@ -1,8 +1,12 @@
 // store.ts
 
-import { createWrapper } from 'next-redux-wrapper';
-import { applyMiddleware, createStore, Store } from 'redux';
 import { composeWithDevTools } from '@redux-devtools/extension';
+import { createWrapper } from 'next-redux-wrapper';
+import {
+  applyMiddleware,
+  legacy_createStore as createStore,
+  Store,
+} from 'redux';
 import createSagaMiddleware, { Task } from 'redux-saga';
 import RootReducer, { AppState } from './reducers';
 import rootSaga from './sagas';
@@ -29,7 +33,8 @@ const makeStore = () => {
   return store;
 };
 
-// export an assembled wrapper
-export default createWrapper<Store<AppState>>(makeStore, {
+const wrapper = createWrapper<Store<AppState>>(makeStore, {
   debug: true,
 });
+// export an assembled wrapper
+export default wrapper;

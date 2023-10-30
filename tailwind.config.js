@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
   jit: true,
@@ -6,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         // Light theme
-        primaryLight: '#ffffff',
+        primaryLight: '#eef2fd',
         secondaryLight: '#211b61', // Blue
 
         // Dark Theme
@@ -16,6 +18,10 @@ module.exports = {
       boxShadow: {
         nft: '0 .625rem 1.25rem rgba(0, 0, 0, 0.25)',
         nftDark: '0 0.625rem 1.25rem rgba(256, 256, 256, 0.10)',
+      },
+      screens: {
+        xs: '475px',
+        ...defaultTheme.screens,
       },
     },
   },

@@ -1,13 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
-import React from 'react';
+import { PrismicPreview } from '@prismicio/next';
 import AppComponentWrapper from 'hoc/AppComponentWrapper';
 import { ThemeProvider } from 'next-themes';
-import App, { AppInitialProps } from 'next/app';
+import { AppProps } from 'next/app';
+import { repositoryName } from 'prismicio';
+import React from 'react';
 import '../src/index.scss';
 import wrapper from '../src/redux/store';
 
-class WrappedApp extends App<AppInitialProps> {
-  public render() {
+// eslint-disable-next-line react/prefer-stateless-function
+class WrappedApp extends React.Component<AppProps> {
+  render() {
     const { Component, pageProps } = this.props;
     return (
       <ThemeProvider attribute='class' enableSystem={false}>
@@ -21,6 +24,7 @@ class WrappedApp extends App<AppInitialProps> {
           <AppComponentWrapper>
             <div className='xl:mx-auto'>
               <Component {...pageProps} />
+              <PrismicPreview repositoryName={repositoryName} />
             </div>
           </AppComponentWrapper>
         </div>

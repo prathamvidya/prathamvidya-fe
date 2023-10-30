@@ -11,4 +11,8 @@ export enum AuthActionType {
 
 export enum UIActionType {
   SET_DARK_MODE = 'ui/mode/dark',
+
+  FETCH_PRISMIC_DATA = 'fetch/data/prismic',
+  FETCH_PRISMIC_DATA_COMPLETED = 'fetch/data/prismic/completed',
+  FETCH_PRISMIC_DATA_ERROR = 'fetch/data/prismic/error',
 }

@@ -1,12 +1,13 @@
+import { PrismicRichText } from '@prismicio/react';
 import React from 'react';
-import { JsonParagraphDataType } from 'types/ListingJsonData.type';
+import { PrismicRickTextJsonType } from 'types/ListingJsonData.type';
 import BrandCardWithShadow from '../BrandCardWithShadow';
 
 interface ParagraphByJsonFileProps {
-  jsonObject: JsonParagraphDataType;
+  jsonObject: PrismicRickTextJsonType;
 }
 
-const ParagraphByJsonFile: React.FC<ParagraphByJsonFileProps> = (props) => {
+const ParagraphByPrismicText: React.FC<ParagraphByJsonFileProps> = (props) => {
   const { jsonObject } = props;
   return (
     <div className='flex flex-col mt-6 space-y-8'>
@@ -16,13 +17,9 @@ const ParagraphByJsonFile: React.FC<ParagraphByJsonFileProps> = (props) => {
           <div className='my-5'>
             <BrandCardWithShadow
               // title={categoryTitle}
-              className='rounded-lg text-slate-900 dark:text-slate-100 shadow-nft bg-slate-400/40 dark:bg-slate-700/50 backdrop-blur !p-6 font-normal tracking-wide text-[17px]'
+              className='rounded-lg text-secondaryLight dark:text-secondaryDark shadow-nft bg-primaryDark/[15%] dark:bg-primaryLight/10 backdrop-blur !p-6 font-normal tracking-wide text-sm md:text-base'
             >
-              {jsonObject[categoryKey].map((para) => (
-                <p className='my-2' key={Math.random()}>
-                  {para}
-                </p>
-              ))}
+              <PrismicRichText field={jsonObject[categoryKey]} />
             </BrandCardWithShadow>
           </div>
         </div>
@@ -31,4 +28,4 @@ const ParagraphByJsonFile: React.FC<ParagraphByJsonFileProps> = (props) => {
   );
 };
 
-export default React.memo(ParagraphByJsonFile);
+export default React.memo(ParagraphByPrismicText);

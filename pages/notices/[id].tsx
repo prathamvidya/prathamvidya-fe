@@ -1,33 +1,30 @@
 import { NextPage } from 'next';
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
-import BrandCardWithShadow from 'shared-resources/components/BrandCardWithShadow';
-import ListingByJsonFile from 'shared-resources/components/ListingComponents/ListingByJsonFile';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { prismicDataSelector } from 'redux/selectors/ui.selectors';
+import wrapper from 'redux/store';
 import GenericSetHead from 'shared/GenericSetHead';
-import { JsonAnnouncementDataType } from 'types/ListingJsonData.type';
-import noticesData from '../../public/assets/mocks/notices/notices.json';
+import nextPrismicFetch from 'shared/next-prismic-fetch/next-prismic-fetch';
+import SingleNoticePageView from 'views/Notices/SingleNoticePageView';
+
+export const getServerSideProps = wrapper.getServerSideProps((store) =>
+  nextPrismicFetch(store, true)
+);
 
 const NoticeByIdPage: NextPage = () => {
-  const router = useRouter();
-  const { id } = router.query;
-  const [notice, setNotice] = useState<JsonAnnouncementDataType>();
+  const prismicDataState = useSelector(prismicDataSelector);
 
-  useEffect(() => {
-    setNotice(
-      Object.values(noticesData)
-        .flat()
-        .find((item) => item.id === id)
-    );
-  }, [id]);
+  if (!prismicDataState) {
+    return null;
+  }
   return (
     <>
       <GenericSetHead
-        title='Notice, AECS Narora'
+        title={`Notice, ${prismicDataState?.settings.site_title}`}
         metadata={[
           {
             property: 'description',
-            content:
-              'Notice Page of Atomic Energy Central School, Narora (AECS Narora)',
+            content: `${prismicDataState?.settings.meta_description}`,
           },
           {
             property: 'robots',
@@ -39,25 +36,7 @@ const NoticeByIdPage: NextPage = () => {
           },
         ]}
       />
-      <div className='p-4 md:px-10 md:py-14'>
-        <div className='text-2xl text-center md:text-4xl'>Notice</div>
-        {notice ? (
-          <div className='mt-10'>
-            <BrandCardWithShadow className='rounded-lg text-slate-900 dark:text-slate-100 shadow-nft bg-slate-400/40 dark:bg-slate-700/50 backdrop-blur !p-10 font-normal tracking-wide text-[17px]'>
-              <div className='text-right'>Dated: {notice.date}</div>
-              <h2 className='mt-10 text-xl font-bold text-center capitalize md:text-3xl'>
-                {notice.title}
-              </h2>
-              <p className='my-10 text-justify'>{notice.description}</p>
-              <ListingByJsonFile
-                jsonObject={{ Attachments: notice.attachments }}
-              />
-            </BrandCardWithShadow>
-          </div>
-        ) : (
-          <div className='text-center my-14'>No Data Found!</div>
-        )}
-      </div>
+      <SingleNoticePageView />
     </>
   );
 };

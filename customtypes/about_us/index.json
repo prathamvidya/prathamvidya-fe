@@ -1,0 +1,84 @@
+{
+  "id": "about_us",
+  "label": "About Us",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "our_mission": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Our Mission",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,preformatted,hyperlink"
+        }
+      },
+      "directors_note": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Director's Note",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink,preformatted"
+        }
+      },
+      "citizen_charter": {
+        "type": "Link",
+        "config": {
+          "label": "Citizen Charter",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
+      "rti": {
+        "type": "Link",
+        "config": {
+          "label": "RTI",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
+      "staff_details": {
+        "type": "Group",
+        "config": {
+          "label": "Staff Details",
+          "fields": {
+            "name": {
+              "type": "Text",
+              "config": {
+                "label": "Name",
+                "placeholder": ""
+              }
+            },
+            "designation": {
+              "type": "Text",
+              "config": {
+                "label": "Designation",
+                "placeholder": ""
+              }
+            },
+            "picture": {
+              "type": "Image",
+              "config": {
+                "label": "Picture",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "is_director": {
+              "type": "Boolean",
+              "config": {
+                "label": "Is Director?",
+                "placeholder_false": "false",
+                "placeholder_true": "true",
+                "default_value": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

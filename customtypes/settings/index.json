@@ -1,0 +1,144 @@
+{
+  "id": "settings",
+  "label": "Settings",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "site_title": {
+        "type": "Text",
+        "config": {
+          "label": "Site Title",
+          "placeholder": "Title of the website. This will be used for SEO as well as all over the website."
+        }
+      },
+      "tagline": {
+        "type": "Text",
+        "config": {
+          "label": "Tagline",
+          "placeholder": "Tagline of the brand. This will be used all over the website."
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "Description of the website. This will be used for SEO."
+        }
+      },
+      "phone_number": {
+        "type": "Text",
+        "config": {
+          "label": "Phone Number",
+          "placeholder": "Contact Number For Contact Us Section"
+        }
+      },
+      "email": {
+        "type": "Text",
+        "config": {
+          "label": "Email",
+          "placeholder": "Email for Contact Us Section"
+        }
+      },
+      "place": {
+        "type": "Text",
+        "config": {
+          "label": "Place",
+          "placeholder": "Primary place of the brand (Ex: India)"
+        }
+      },
+      "address": {
+        "type": "Group",
+        "config": {
+          "label": "Address",
+          "fields": {
+            "line_1": {
+              "type": "Text",
+              "config": {
+                "label": "Line 1",
+                "placeholder": "Line 1 of the address"
+              }
+            },
+            "line_2": {
+              "type": "Text",
+              "config": {
+                "label": "Line 2",
+                "placeholder": "Line 2 of the address"
+              }
+            },
+            "line_3": {
+              "type": "Text",
+              "config": {
+                "label": "Line 3",
+                "placeholder": "Line 3 of the address"
+              }
+            },
+            "maps_link": {
+              "type": "Text",
+              "config": {
+                "label": "Maps Link",
+                "placeholder": "Link of the map. Ex: Google Maps"
+              }
+            }
+          }
+        }
+      },
+      "hero_info_banner": {
+        "type": "Link",
+        "config": {
+          "label": "Hero Info Banner",
+          "placeholder": "Link to the information banner",
+          "select": "media"
+        }
+      },
+      "hero_slideshow_images": {
+        "type": "Group",
+        "config": {
+          "label": "Hero Slideshow Images",
+          "fields": {
+            "image_link": {
+              "type": "Link",
+              "config": {
+                "label": "Image Link",
+                "placeholder": "Link to the image",
+                "select": "media"
+              }
+            }
+          }
+        }
+      },
+      "external_links": {
+        "type": "Group",
+        "config": {
+          "label": "External Links",
+          "fields": {
+            "link_title": {
+              "type": "Text",
+              "config": {
+                "label": "Link Title",
+                "placeholder": ""
+              }
+            },
+            "link_url": {
+              "type": "Link",
+              "config": {
+                "label": "Link URL",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "link_thumbnail": {
+              "type": "Image",
+              "config": {
+                "label": "Link Thumbnail",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

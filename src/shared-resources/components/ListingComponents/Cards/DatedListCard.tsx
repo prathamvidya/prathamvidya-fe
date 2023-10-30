@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import BrandCardWithShadow from 'shared-resources/components/BrandCardWithShadow';
+import { Utils } from 'utils/Utils';
 
 interface DatedListCardProps {
   categoryKey?: string;
@@ -21,7 +22,7 @@ const DatedListCard: React.FC<DatedListCardProps> = (props) => {
         window.open(item.target, '_blank');
       }}
     >
-      <div className='flex flex-col justify-between w-full space-y-4'>
+      <div className='flex flex-col justify-between w-full space-y-2'>
         {categoryKey && (
           <div className='px-4 py-1 text-sm rounded-full w-fit text-primaryLight dark:text-primaryDark bg-primaryDark dark:bg-primaryLight'>
             {categoryKey}
@@ -36,9 +37,9 @@ const DatedListCard: React.FC<DatedListCardProps> = (props) => {
         </span>
         <div className='flex items-center justify-between'>
           <div className='text-xs font-bold tracking-wider'>
-            Dated: {item.date}
+            Dated: {Utils.convertISOtoIST(item.date)}
           </div>
-          <Link href={item.target} passHref>
+          <Link href={item.target} passHref legacyBehavior>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a
               role='link'

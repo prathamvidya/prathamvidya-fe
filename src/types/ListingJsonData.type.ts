@@ -1,3 +1,5 @@
+import { RichTextField } from '@prismicio/client';
+
 // Used in Tenders, Downloads, Gallery Drive Links
 export type JsonListItemType = {
   title: string;
@@ -67,4 +69,17 @@ export type JsonAnnouncementDataType = {
 
 export type JsonNoticesDataType = {
   [category: string]: JsonAnnouncementDataType[];
+};
+
+// Used in Our Mission
+export type PrismicRickTextJsonType = {
+  [category: string]: RichTextField; // For paragraphs
+};
+
+// Used in Principal Desk
+export type PrismicDirectorNoteJsonDataType = {
+  name: string;
+  avatar: string;
+  designation: string;
+  message: RichTextField; // For paragraphs
 };

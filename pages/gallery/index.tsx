@@ -1,26 +1,22 @@
 import { NextPage } from 'next';
-import React, { useEffect, useState } from 'react';
-import GalleryByJsonFile from 'shared-resources/components/ListingComponents/GalleryByJsonFile';
-import ListingByJsonFile from 'shared-resources/components/ListingComponents/ListingByJsonFile';
+import React from 'react';
 import GenericSetHead from 'shared/GenericSetHead';
-import { JsonGalleryDataType } from 'types/ListingJsonData.type';
-import { Utils } from 'utils/Utils';
-import galleryData from '../../public/assets/mocks/gallery/gallery.json';
 
 const GalleryPage: NextPage = () => {
-  const [loadInWebGallery, setLoadInWebGallery] =
-    useState<JsonGalleryDataType>();
-  useEffect(() => {
-    const importedGallery = Utils.importAllFilesFromDirectory(
-      require.context(
-        // This path has to be hardcoded to be imported by webpack
-        '../../public/assets/mocks/gallery/',
-        true,
-        /\.(png|jpe?g|svg)$/
-      )
-    );
-    setLoadInWebGallery(importedGallery);
-  }, []);
+  // const [loadInWebGallery, setLoadInWebGallery] =
+  //   useState<JsonGalleryDataType>();
+  // useEffect(() => {
+  //   const importedGallery = Utils.importAllFilesFromDirectory(
+  //     require.context(
+  //       // This path has to be hardcoded to be imported by webpack
+  //       '../../public/assets/mocks/gallery/',
+  //       true,
+  //       /\.(png|jpe?g|svg)$/
+  //     )
+  //   );
+  //   setLoadInWebGallery(importedGallery);
+  // }, []);
+  console.log('maintenance');
   return (
     <>
       <GenericSetHead
@@ -41,13 +37,14 @@ const GalleryPage: NextPage = () => {
           },
         ]}
       />
-      <div className='p-4 md:px-10 md:py-14'>
+      {/* <div className='p-4 md:px-10 md:py-14'>
         <div className='text-2xl text-center md:text-4xl'>Gallery</div>
         {loadInWebGallery && (
           <GalleryByJsonFile jsonObject={loadInWebGallery} />
         )}
         <ListingByJsonFile jsonObject={galleryData} />
-      </div>
+      </div> */}
+      Under Maintenance
     </>
   );
 };

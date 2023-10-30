@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import { JsonGalleryDataType } from 'types/ListingJsonData.type';
-import ImageSlideshow from '../ImageSlideshow';
+import ImageSlideshow from '../Images/ImageSlideshow';
 import Modal from '../Modal/Modal';
 
 interface GalleryByJsonFileProps {

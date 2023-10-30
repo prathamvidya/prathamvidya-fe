@@ -1,34 +1,46 @@
 import { NextPage } from 'next';
 import React from 'react';
-import ParagraphByJsonFile from 'shared-resources/components/ListingComponents/ParagraphByJsonFile';
+import { useSelector } from 'react-redux';
+import { prismicDataSelector } from 'redux/selectors/ui.selectors';
+import wrapper from 'redux/store';
 import GenericSetHead from 'shared/GenericSetHead';
-import aboutUsData from '../../public/assets/mocks/about/aboutUs.json';
+import nextPrismicFetch, {
+  NextPageProps,
+} from 'shared/next-prismic-fetch/next-prismic-fetch';
+import OurMissionView from 'views/AboutUs/OurMissionView';
 
-const AboutUsPage: NextPage = () => (
-  <>
-    <GenericSetHead
-      title='About Us, AECS Narora'
-      metadata={[
-        {
-          property: 'description',
-          content:
-            'This is the about us section of Atomic Energy Central School, Narora Website. See our mission, the authority, board of members etc.',
-        },
-        {
-          property: 'robots',
-          content: 'index, follow',
-        },
-        {
-          property: 'viewport',
-          content: 'width=device-width, initial-scale=1.0',
-        },
-      ]}
-    />
-    <div className='p-4 md:px-10 md:py-14'>
-      <div className='text-2xl text-center md:text-4xl'>About Us</div>
-      <ParagraphByJsonFile jsonObject={aboutUsData} />
-    </div>
-  </>
+export const getServerSideProps = wrapper.getServerSideProps((store) =>
+  nextPrismicFetch(store, true)
 );
+
+const AboutUsPage: NextPage<NextPageProps> = () => {
+  const prismicDataState = useSelector(prismicDataSelector);
+
+  if (!prismicDataState) {
+    return null;
+  }
+  return (
+    <>
+      <GenericSetHead
+        title={`About Us, ${prismicDataState?.settings.site_title}`}
+        metadata={[
+          {
+            property: 'description',
+            content: `${prismicDataState?.settings.meta_description}`,
+          },
+          {
+            property: 'robots',
+            content: 'index, follow',
+          },
+          {
+            property: 'viewport',
+            content: 'width=device-width, initial-scale=1.0',
+          },
+        ]}
+      />
+      <OurMissionView />
+    </>
+  );
+};
 
 export default React.memo(AboutUsPage);

@@ -5,7 +5,7 @@ import store from 'redux/store';
 const MyDocument = (): React.ReactElement => (
   <Html>
     <Head />
-    <body className='text-secondaryLight bg-primaryLight dark:bg-primaryDark font-[JosefinSans] dark:text-secondaryDark relative transition-colors duration-300'>
+    <body className='relative font-[Montserrat] transition-colors duration-300 text-secondaryLight bg-primaryLight dark:bg-primaryDark dark:text-secondaryDark'>
       <Main />
       <NextScript />
     </body>

@@ -2,7 +2,7 @@ import { useTheme } from 'next-themes';
 import React from 'react';
 import { JsonStaffDataType } from 'types/ListingJsonData.type';
 import BrandCardWithShadow from '../BrandCardWithShadow';
-import ImageSlideshow from '../ImageSlideshow';
+import ImageSlideshow from '../Images/ImageSlideshow';
 
 interface StaffGalleryByJsonFileProps {
   jsonObject: JsonStaffDataType;

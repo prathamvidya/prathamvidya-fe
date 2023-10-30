@@ -1,7 +1,6 @@
 import React from 'react';
 import Footer from 'shared-resources/components/Footer';
 import NavBar from 'shared-resources/components/NavBar';
-import wrapper from '../redux/store';
 
 interface AppComponentWrapperProps {
   children: any;
@@ -17,4 +16,4 @@ const AppComponentWrapper: React.FC<AppComponentWrapperProps> = ({
   </div>
 );
 
-export default wrapper.withRedux(AppComponentWrapper);
+export default AppComponentWrapper;

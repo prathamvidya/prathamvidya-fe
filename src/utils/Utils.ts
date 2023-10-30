@@ -1,9 +1,16 @@
+import { isArray, pickBy } from 'lodash';
+
 const generalImageFormat = ['.svg', '.png', '.jpg', '.jpeg', '.hic', '.heic'];
 
 export class Utils {
   static ImageFormats(): Array<string> {
     return generalImageFormat;
   }
+
+  public static sanitizeObject = (data: any) =>
+    pickBy(data, (v: any) =>
+      isArray(v) ? !!v.length : v !== null && v !== undefined && v !== ''
+    );
 
   static importAllFilesFromDirectory = (
     r: __WebpackModuleApi.RequireContext
@@ -46,6 +53,21 @@ export class Utils {
 
   static iterateEnum<T>(enumRef: any): T[] {
     return Object.keys(enumRef).map((key) => enumRef[key]);
+  }
+
+  static convertISOtoIST(isoDate: string) {
+    // Step 1: Create a Date object with the ISO date
+    const dateISO = new Date(isoDate);
+
+    const istDateString = dateISO.toLocaleString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+    });
+
+    return istDateString;
   }
 }
 
