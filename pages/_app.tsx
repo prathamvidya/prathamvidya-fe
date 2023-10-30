@@ -24,7 +24,9 @@ class WrappedApp extends React.Component<AppProps> {
           <AppComponentWrapper>
             <div className='xl:mx-auto'>
               <Component {...pageProps} />
-              <PrismicPreview repositoryName={repositoryName} />
+              {process.env.NODE_ENV === 'development' && (
+                <PrismicPreview repositoryName={repositoryName} />
+              )}
             </div>
           </AppComponentWrapper>
         </div>
