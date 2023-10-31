@@ -26,8 +26,9 @@ class PrismicService {
         return -1;
       });
     const aboutUs = (await client.getSingle('about_us')).data;
+    const gallery = (await client.getSingle('gallery')).data;
 
-    return { settings, notices, aboutUs };
+    return { settings, notices, aboutUs, gallery };
   }
 }
 

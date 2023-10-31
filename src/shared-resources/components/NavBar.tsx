@@ -47,11 +47,13 @@ const NavBar: React.FunctionComponent = () => {
             (prismicDataState?.aboutUs.citizen_charter as FilledLinkToWebField)
               ?.url || '',
           text: 'Citizen Charter',
+          isExternal: true,
         },
         {
           url:
             (prismicDataState?.aboutUs.rti as FilledLinkToWebField)?.url || '',
           text: 'RTI',
+          isExternal: true,
         },
       ],
     },
@@ -64,6 +66,7 @@ const NavBar: React.FunctionComponent = () => {
         (prismicSettings?.apply_now_form_link as FilledLinkToWebField)?.url ||
         '',
       text: 'Apply',
+      isExternal: true,
     },
     {
       text: 'Payments',
@@ -73,12 +76,14 @@ const NavBar: React.FunctionComponent = () => {
             (prismicSettings?.contribution_payment_link as FilledLinkToWebField)
               ?.url || '',
           text: 'Contribute',
+          isExternal: true,
         },
         {
           url:
             (prismicSettings?.exam_payment_link as FilledLinkToWebField)?.url ||
             '',
           text: 'Exam Fees',
+          isExternal: true,
         },
       ],
     },
@@ -161,6 +166,8 @@ const NavBar: React.FunctionComponent = () => {
                   setSelected(link.url);
                 }
               }}
+              target={link.isExternal ? '_blank' : undefined}
+              rel={link.isExternal ? 'noreferrer noopener' : undefined}
               className={`w-[10rem] flex-shrink-0 cursor-pointer my-1 `}
             >
               <span
@@ -213,6 +220,8 @@ const NavBar: React.FunctionComponent = () => {
                   onClick={() => {
                     setSelected(submenu.url);
                   }}
+                  target={submenu.isExternal ? '_blank' : undefined}
+                  rel={submenu.isExternal ? 'noreferrer noopener' : undefined}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' && setSelected) {
                       setSelected(submenu.url);

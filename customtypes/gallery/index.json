@@ -1,0 +1,50 @@
+{
+  "id": "gallery",
+  "label": "Gallery",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "images": {
+        "type": "Group",
+        "config": {
+          "label": "Images",
+          "fields": {
+            "url": {
+              "type": "Image",
+              "config": {
+                "label": "url",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      },
+      "drive_links": {
+        "type": "Group",
+        "config": {
+          "label": "Drive Links",
+          "fields": {
+            "title": {
+              "type": "Text",
+              "config": {
+                "label": "Title",
+                "placeholder": ""
+              }
+            },
+            "url": {
+              "type": "Link",
+              "config": {
+                "label": "url",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

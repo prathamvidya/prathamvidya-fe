@@ -1,31 +1,24 @@
 import { NextPage } from 'next';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { prismicDataSelector } from 'redux/selectors/ui.selectors';
 import GenericSetHead from 'shared/GenericSetHead';
+import GalleryPageView from 'views/Gallery/GalleryPageView';
 
 const GalleryPage: NextPage = () => {
-  // const [loadInWebGallery, setLoadInWebGallery] =
-  //   useState<JsonGalleryDataType>();
-  // useEffect(() => {
-  //   const importedGallery = Utils.importAllFilesFromDirectory(
-  //     require.context(
-  //       // This path has to be hardcoded to be imported by webpack
-  //       '../../public/assets/mocks/gallery/',
-  //       true,
-  //       /\.(png|jpe?g|svg)$/
-  //     )
-  //   );
-  //   setLoadInWebGallery(importedGallery);
-  // }, []);
-  console.log('maintenance');
+  const prismicDataState = useSelector(prismicDataSelector);
+
+  if (!prismicDataState) {
+    return null;
+  }
   return (
     <>
       <GenericSetHead
-        title='Gallery, AECS Narora'
+        title={`Gallery, ${prismicDataState?.settings.site_title}`}
         metadata={[
           {
             property: 'description',
-            content:
-              'This is the gallery page of Atomic Energy Central School, Narora Website which contains images from verious events held at AECS Narora.',
+            content: `${prismicDataState?.settings.meta_description}`,
           },
           {
             property: 'robots',
@@ -37,14 +30,7 @@ const GalleryPage: NextPage = () => {
           },
         ]}
       />
-      {/* <div className='p-4 md:px-10 md:py-14'>
-        <div className='text-2xl text-center md:text-4xl'>Gallery</div>
-        {loadInWebGallery && (
-          <GalleryByJsonFile jsonObject={loadInWebGallery} />
-        )}
-        <ListingByJsonFile jsonObject={galleryData} />
-      </div> */}
-      Under Maintenance
+      <GalleryPageView />
     </>
   );
 };

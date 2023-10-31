@@ -129,6 +129,89 @@ export type AboutUsDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Gallery → Images*
+ */
+export interface GalleryDocumentDataImagesItem {
+  /**
+   * url field in *Gallery → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.images[].url
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  url: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *Gallery → Drive Links*
+ */
+export interface GalleryDocumentDataDriveLinksItem {
+  /**
+   * Title field in *Gallery → Drive Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.drive_links[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * url field in *Gallery → Drive Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.drive_links[].url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  url: prismic.LinkField;
+}
+
+/**
+ * Content for Gallery documents
+ */
+interface GalleryDocumentData {
+  /**
+   * Images field in *Gallery*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.images[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<Simplify<GalleryDocumentDataImagesItem>>;
+
+  /**
+   * Drive Links field in *Gallery*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.drive_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  drive_links: prismic.GroupField<Simplify<GalleryDocumentDataDriveLinksItem>>;
+}
+
+/**
+ * Gallery document from Prismic
+ *
+ * - **API ID**: `gallery`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GalleryDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<GalleryDocumentData>,
+    'gallery',
+    Lang
+  >;
+
+/**
  * Item in *Notice → Attachments*
  */
 export interface NoticeDocumentDataAttachmentsItem {
@@ -494,6 +577,7 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AboutUsDocument
+  | GalleryDocument
   | NoticeDocument
   | SettingsDocument;
 
@@ -510,6 +594,10 @@ declare module '@prismicio/client' {
       AboutUsDocument,
       AboutUsDocumentData,
       AboutUsDocumentDataStaffDetailsItem,
+      GalleryDocument,
+      GalleryDocumentData,
+      GalleryDocumentDataImagesItem,
+      GalleryDocumentDataDriveLinksItem,
       NoticeDocument,
       NoticeDocumentData,
       NoticeDocumentDataAttachmentsItem,

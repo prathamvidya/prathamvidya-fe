@@ -102,7 +102,7 @@ const GalleryByJsonFile: React.FC<GalleryByJsonFileProps> = (props) => {
           if (!value) setSelectedFile(undefined);
         }}
         closeOnOutsideClick
-        className='fixed inset-0 backdrop-blur-2xl bg-slate-400/40 dark:bg-slate-700/50'
+        className='fixed inset-0 backdrop-blur-2xl bg-primaryLight/40 dark:bg-primaryDark/50'
         showCloseButton
         overlay={false}
       >
@@ -138,7 +138,7 @@ const GalleryByJsonFile: React.FC<GalleryByJsonFileProps> = (props) => {
                       : undefined
                   );
                 }}
-                className='transition-colors duration-300 rounded-md dark:hover:bg-slate-100 hover:bg-opacity-10 hover:bg-slate-900 dark:hover:bg-opacity-10'
+                className='transition-colors duration-300 rounded-md dark:hover:bg-primaryLight hover:bg-opacity-10 hover:bg-secondaryLight dark:hover:bg-opacity-10'
               >
                 <MdNavigateBefore />
               </button>
@@ -156,12 +156,12 @@ const GalleryByJsonFile: React.FC<GalleryByJsonFileProps> = (props) => {
                       : undefined
                   )
                 }
-                className='transition-colors duration-300 rounded-md dark:hover:bg-slate-100 hover:bg-opacity-10 hover:bg-slate-900 dark:hover:bg-opacity-10'
+                className='transition-colors duration-300 rounded-md dark:hover:bg-primaryLight hover:bg-opacity-10 hover:bg-secondaryLight dark:hover:bg-opacity-10'
               >
                 <MdNavigateNext />
               </button>
             </div>
-            <div className='absolute flex-col items-center justify-center px-8 py-3 text-lg text-center -translate-x-1/2 bg-opacity-50 rounded-lg shadow-lg dark:bg-opacity-40 bg-slate-200 dark:bg-slate-900 bottom-10 left-1/2'>
+            <div className='absolute flex-col items-center justify-center px-8 py-3 text-lg text-center -translate-x-1/2 rounded-lg shadow-lg text-primaryLight bg-secondaryLight dark:bg-secondaryDark dark:text-primaryDark bottom-10 left-1/2'>
               <div className='font-bold'>{selectedFile.categoryTitle}</div>
               <div className='tracking-wider'>
                 - {selectedFile.imageIndex + 1}/
