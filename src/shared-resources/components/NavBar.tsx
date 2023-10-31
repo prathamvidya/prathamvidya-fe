@@ -1,3 +1,4 @@
+import { FilledLinkToWebField } from '@prismicio/client';
 import useWindowSize from 'hooks/useWindowSize';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
@@ -7,70 +8,9 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { BsChevronDown } from 'react-icons/bs';
 import { useSelector } from 'react-redux';
-import { prismicDataSettingsSelector } from 'redux/selectors/ui.selectors';
+import { prismicDataSelector } from 'redux/selectors/ui.selectors';
 import Dropdown from './Dropdown/Dropdown';
 import DarkModeToggle from './Toggle/DarkModeToggle';
-
-const navLinks = [
-  {
-    url: '/',
-    text: 'Home',
-  },
-  {
-    text: 'About Us',
-    subMenus: [
-      {
-        url: '/about',
-        text: 'Our Mission',
-      },
-      {
-        url: '/about/directors-note',
-        text: "Director's Note",
-      },
-      {
-        url: '_blank/citizen',
-        text: 'Citizen Charter',
-      },
-      {
-        url: '_blank/rti',
-        text: 'RTI',
-      },
-    ],
-  },
-  {
-    url: '/schemes',
-    text: 'Schemes',
-  },
-  {
-    url: '/apply-process',
-    text: 'Apply',
-  },
-  {
-    text: 'Payments',
-    subMenus: [
-      {
-        url: 'payments/donate',
-        text: 'Contribute',
-      },
-      {
-        url: '/payments/exam-fees',
-        text: 'Exam Fees',
-      },
-    ],
-  },
-  {
-    url: '/vacancies',
-    text: 'Vacancies',
-  },
-  {
-    url: '/notices',
-    text: 'Notices',
-  },
-  {
-    url: '/gallery',
-    text: 'Gallery',
-  },
-];
 
 export interface NavLinkItem {
   label: string;
@@ -81,6 +21,80 @@ export interface NavLinkItem {
 
 const NavBar: React.FunctionComponent = () => {
   const { isScreenMdPlus } = useWindowSize();
+
+  const prismicDataState = useSelector(prismicDataSelector);
+
+  const prismicSettings = prismicDataState?.settings;
+
+  const navLinks = [
+    {
+      url: '/',
+      text: 'Home',
+    },
+    {
+      text: 'About Us',
+      subMenus: [
+        {
+          url: '/about',
+          text: 'Our Mission',
+        },
+        {
+          url: '/about/directors-note',
+          text: "Director's Note",
+        },
+        {
+          url:
+            (prismicDataState?.aboutUs.citizen_charter as FilledLinkToWebField)
+              ?.url || '',
+          text: 'Citizen Charter',
+        },
+        {
+          url:
+            (prismicDataState?.aboutUs.rti as FilledLinkToWebField)?.url || '',
+          text: 'RTI',
+        },
+      ],
+    },
+    {
+      url: '/schemes',
+      text: 'Schemes',
+    },
+    {
+      url:
+        (prismicSettings?.apply_now_form_link as FilledLinkToWebField)?.url ||
+        '',
+      text: 'Apply',
+    },
+    {
+      text: 'Payments',
+      subMenus: [
+        {
+          url:
+            (prismicSettings?.contribution_payment_link as FilledLinkToWebField)
+              ?.url || '',
+          text: 'Contribute',
+        },
+        {
+          url:
+            (prismicSettings?.exam_payment_link as FilledLinkToWebField)?.url ||
+            '',
+          text: 'Exam Fees',
+        },
+      ],
+    },
+    // {
+    //   url: '/vacancies',
+    //   text: 'Vacancies',
+    // },
+    {
+      url: '/notices',
+      text: 'Notices',
+    },
+    {
+      url: '/gallery',
+      text: 'Gallery',
+    },
+  ];
 
   // Required for theme
   const [mounted, setMounted] = useState(false);
@@ -231,9 +245,7 @@ const NavBar: React.FunctionComponent = () => {
     setMounted(true);
   }, []);
 
-  const prismicSettings = useSelector(prismicDataSettingsSelector);
-
-  if (!prismicSettings) {
+  if (!prismicDataState) {
     return null;
   }
 
@@ -263,7 +275,7 @@ const NavBar: React.FunctionComponent = () => {
             />
           </span>
           {/* Heading */}
-          <div className='flex-shrink-0 py-1 pl-6 text-base transition duration-500 border-l text-secondaryLight border-secondaryLight dark:text-secondaryDark dark:border-secondaryDark md:py-3 border-opacity-20 md:text-2xl'>
+          <div className='flex-shrink-0 max-w-xs py-1 pl-6 text-base transition duration-500 border-l text-secondaryLight border-secondaryLight dark:text-secondaryDark dark:border-secondaryDark md:py-3 border-opacity-20 md:text-2xl'>
             <div className='font-bold tracking-wide'>
               {prismicSettings?.site_title}
             </div>

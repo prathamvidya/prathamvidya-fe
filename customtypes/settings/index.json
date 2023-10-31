@@ -138,6 +138,31 @@
             }
           }
         }
+      },
+      "apply_now_form_link": {
+        "type": "Link",
+        "config": {
+          "label": "Apply Now Form Link",
+          "placeholder": "Form Link to apply",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "contribution_payment_link": {
+        "type": "Link",
+        "config": {
+          "label": "Contribution Payment Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "exam_payment_link": {
+        "type": "Link",
+        "config": {
+          "label": "Exam Payment Link",
+          "placeholder": "",
+          "select": null
+        }
       }
     }
   }

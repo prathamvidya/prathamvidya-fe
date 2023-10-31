@@ -441,6 +441,39 @@ interface SettingsDocumentData {
   external_links: prismic.GroupField<
     Simplify<SettingsDocumentDataExternalLinksItem>
   >;
+
+  /**
+   * Apply Now Form Link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Form Link to apply
+   * - **API ID Path**: settings.apply_now_form_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  apply_now_form_link: prismic.LinkField;
+
+  /**
+   * Contribution Payment Link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.contribution_payment_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  contribution_payment_link: prismic.LinkField;
+
+  /**
+   * Exam Payment Link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.exam_payment_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  exam_payment_link: prismic.LinkField;
 }
 
 /**

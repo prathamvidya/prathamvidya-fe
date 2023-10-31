@@ -25,13 +25,13 @@ const DatedListCardWithImage: React.FC<DatedListCardProps> = (props) => {
         className='block w-full h-full'
       >
         <BrandCardWithShadow className='!flex-row w-full h-full !justify-start items-center rounded-lg text-secondaryLight dark:text-secondaryDark bg-primaryDark/[15%] dark:bg-primaryLight/10 dark:hover:bg-secondaryDark hover:bg-secondaryLight/95 hover:text-primaryLight hover:dark:text-primaryDark transition-colors duration-500 !p-2 lg:!p-4'>
-          <div className='flex-shrink-0 mr-2 lg:mr-4'>
+          <div className='flex-shrink-0 object-cover mr-2 lg:mr-4'>
             <Image
               src={item.image_src}
               alt=''
               height={40}
               width={40}
-              className='relative top-0 left-0 sm:hidden'
+              className='relative top-0 left-0 hidden object-cover overflow-hidden rounded-full aspect-square sm:hidden'
               unoptimized
             />
             <Image
@@ -39,7 +39,7 @@ const DatedListCardWithImage: React.FC<DatedListCardProps> = (props) => {
               alt=''
               height={52}
               width={52}
-              className='relative top-0 left-0 hidden sm:block lg:hidden'
+              className='relative top-0 left-0 hidden object-cover overflow-hidden rounded-full aspect-square sm:block lg:hidden'
               unoptimized
             />
             <Image
@@ -47,7 +47,7 @@ const DatedListCardWithImage: React.FC<DatedListCardProps> = (props) => {
               alt=''
               height={64}
               width={64}
-              className='relative top-0 left-0 hidden lg:block'
+              className='relative top-0 left-0 hidden object-cover overflow-hidden rounded-full aspect-square lg:block'
               unoptimized
             />
           </div>
@@ -58,7 +58,7 @@ const DatedListCardWithImage: React.FC<DatedListCardProps> = (props) => {
               </div>
             )}
             <div
-              className={`flex-grow-0 text-xs sm:text-sm overflow-hidden text-justify ${
+              className={`flex-grow-0 text-xs sm:text-sm overflow-hidden ${
                 singleLineTitle ? 'text-ellipsis whitespace-nowrap' : ''
               } `}
             >

@@ -80,19 +80,21 @@ const HomePageView: React.FC<HomePageProps> = () => {
           {/* External Links */}
           <div className='grid w-full grid-cols-2 gap-2 sm:gap-6 lg:grid-cols-2 auto-rows-auto'>
             {prismicDataState?.settings.external_links &&
-              prismicDataState.settings.external_links.map((link) => (
-                <DatedListCardWithImage
-                  parentClassName='h-20'
-                  key={link.link_title?.toString()!}
-                  item={{
-                    title: link.link_title?.toString()!,
-                    target: (
-                      link.link_url as FilledLinkToWebField
-                    ).url.toString(),
-                    image_src: link.link_thumbnail.url!.toString(),
-                  }}
-                />
-              ))}
+              prismicDataState.settings.external_links
+                .slice(0, 10)
+                .map((link) => (
+                  <DatedListCardWithImage
+                    parentClassName='h-20'
+                    key={link.link_title?.toString()!}
+                    item={{
+                      title: link.link_title?.toString()!,
+                      target: (
+                        link.link_url as FilledLinkToWebField
+                      ).url.toString(),
+                      image_src: link.link_thumbnail.url!.toString(),
+                    }}
+                  />
+                ))}
           </div>
         </div>
 
