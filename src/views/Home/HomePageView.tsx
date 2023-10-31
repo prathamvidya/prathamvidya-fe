@@ -11,6 +11,7 @@ import { prismicDataSelector } from 'redux/selectors/ui.selectors';
 import ImageSlideshowTwoCols from 'shared-resources/components/Images/ImageSlideshowTwoCols';
 import DatedListCard from 'shared-resources/components/ListingComponents/Cards/DatedListCard';
 import DatedListCardWithImage from 'shared-resources/components/ListingComponents/Cards/DatedListCardWithImage';
+import SocialHandleSection from 'shared-resources/components/SocialHandleSection';
 
 interface HomePageProps {}
 
@@ -125,7 +126,7 @@ const HomePageView: React.FC<HomePageProps> = () => {
 
           {/* Director */}
           {director && (
-            <div className='flex-shrink-0 h-full rounded-lg w-fit lg:w-1/4 shadow-nft dark:shadow-nftDark'>
+            <div className='flex-shrink-0 h-full mx-auto rounded-lg w-fit lg:w-1/4 shadow-nft dark:shadow-nftDark'>
               <div className='flex flex-col h-full p-6 rounded-lg dark:bg-secondaryDark bg-secondaryLight/95 text-primaryLight dark:text-primaryDark backdrop-blur shadow-nft'>
                 <div className='relative w-full max-w-xs mx-auto !aspect-square max-h-80'>
                   <Image
@@ -145,6 +146,8 @@ const HomePageView: React.FC<HomePageProps> = () => {
             </div>
           )}
         </div>
+
+        <SocialHandleSection />
       </div>
     </div>
   );
