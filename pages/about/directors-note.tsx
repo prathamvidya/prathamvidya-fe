@@ -2,8 +2,14 @@ import { NextPage } from 'next';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { prismicDataSelector } from 'redux/selectors/ui.selectors';
+import wrapper from 'redux/store';
 import GenericSetHead from 'shared/GenericSetHead';
+import nextPrismicFetch from 'shared/next-prismic-fetch/next-prismic-fetch';
 import DirectorsNoteView from 'views/AboutUs/DirectorsNoteView';
+
+export const getServerSideProps = wrapper.getServerSideProps((store) =>
+  nextPrismicFetch(store, true)
+);
 
 const DirectorsNotePage: NextPage = () => {
   const prismicDataState = useSelector(prismicDataSelector);
