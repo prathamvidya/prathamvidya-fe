@@ -60,13 +60,28 @@ const NavBar: React.FunctionComponent = () => {
     {
       url: '/schemes',
       text: 'Schemes',
+      isExternal: false,
     },
     {
-      url:
-        (prismicSettings?.apply_now_form_link as FilledLinkToWebField)?.url ||
-        '',
       text: 'Apply',
-      isExternal: true,
+      subMenus: [
+        {
+          url:
+            (
+              prismicSettings?.apply_now_kishore_form_link as FilledLinkToWebField
+            )?.url || '',
+          text: 'Kishor Scholarsh.',
+          isExternal: true,
+        },
+        {
+          url:
+            (
+              prismicSettings?.apply_now_tarun_scholarsh_form_link as FilledLinkToWebField
+            )?.url || '',
+          text: 'Tarun Scholarship',
+          isExternal: true,
+        },
+      ],
     },
     {
       text: 'Payments',
@@ -264,7 +279,7 @@ const NavBar: React.FunctionComponent = () => {
       <header className='flex items-center justify-between w-full'>
         <div className='flex items-center'>
           {/* Logo */}
-          <span className='flex-shrink-0 px-4 py-8 md:px-10'>
+          <span className='flex-shrink-0 py-8 pl-2 pr-4 md:pr-6'>
             <div className='absolute dark:bg-[url("/assets/img/PrathamVidyaLogoDark.png")] bg-[url("/assets/img/PrathamVidyaLogo.png")] flex items-center justify-center bg-cover blur-2xl opacity-75 h-[3rem] w-[3rem] md:h-[6.25rem] md:w-[6.25rem] ' />
             <Image
               src='/assets/img/PrathamVidyaLogoDark.png'
@@ -284,7 +299,7 @@ const NavBar: React.FunctionComponent = () => {
             />
           </span>
           {/* Heading */}
-          <div className='flex-shrink-0 max-w-xs py-1 pl-6 text-base transition duration-500 border-l text-secondaryLight border-secondaryLight dark:text-secondaryDark dark:border-secondaryDark md:py-3 border-opacity-20 md:text-2xl'>
+          <div className='flex-shrink-0 max-w-xs py-1 pl-4 text-base transition duration-500 border-l md:pl-6 text-secondaryLight border-secondaryLight dark:text-secondaryDark dark:border-secondaryDark md:py-3 border-opacity-20 md:text-2xl'>
             <div className='font-bold tracking-wide'>
               {prismicSettings?.site_title}
             </div>

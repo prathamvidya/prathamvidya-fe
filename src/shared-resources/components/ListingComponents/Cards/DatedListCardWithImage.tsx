@@ -24,7 +24,7 @@ const DatedListCardWithImage: React.FC<DatedListCardProps> = (props) => {
         rel='noreferrer noopener'
         className='block w-full h-full'
       >
-        <BrandCardWithShadow className='!flex-row w-full h-full !justify-start items-center rounded-lg text-secondaryLight dark:text-secondaryDark bg-primaryDark/[15%] dark:bg-primaryLight/10 dark:hover:bg-secondaryDark hover:bg-secondaryLight/95 hover:text-primaryLight hover:dark:text-primaryDark transition-colors duration-500 !p-2 lg:!p-4'>
+        <BrandCardWithShadow className='!flex-row transition-all duration-500 hover:scale-105 w-full h-full !justify-start items-center rounded-lg text-secondaryLight dark:text-secondaryDark bg-primaryDark/[15%] dark:bg-primaryLight/10 dark:hover:bg-secondaryDark hover:bg-secondaryLight/95 hover:text-primaryLight hover:dark:text-primaryDark !p-2 lg:!p-4'>
           <div className='flex-shrink-0 object-cover mr-2 lg:mr-4'>
             <Image
               src={item.image_src}

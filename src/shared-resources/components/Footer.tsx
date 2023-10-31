@@ -58,17 +58,6 @@ const Footer: React.FunctionComponent<Props> = () => {
               {prismicSettingsState?.email}
             </a>
 
-            {/* <iframe
-              src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2799.6114859389418!2d78.37360986770324!3d28.20548525170257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390b349a2fadd601%3A0xd930f65f76aee0e4!2sAECS%20School!5e0!3m2!1sen!2sin!4v1671636070830!5m2!1sen!2sin'
-              width='400'
-              height='300'
-              style={{
-                border: 0,
-              }}
-              loading='lazy'
-              referrerpolicy='no-referrer-when-downgrade'
-              title='AECS Narora Map'
-            /> */}
             <div className='mt-2 text-sm'>
               Address:{' '}
               <a

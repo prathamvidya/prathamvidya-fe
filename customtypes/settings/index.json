@@ -139,12 +139,20 @@
           }
         }
       },
-      "apply_now_form_link": {
+      "apply_now_kishore_form_link": {
         "type": "Link",
         "config": {
-          "label": "Apply Now Form Link",
+          "label": "Apply Now Kishore Scholarship Form Link",
           "placeholder": "Form Link to apply",
           "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "apply_now_tarun_scholarsh_form_link": {
+        "type": "Link",
+        "config": {
+          "label": "Apply Now Tarun Scholarsh Form Link",
+          "placeholder": "",
           "select": null
         }
       },

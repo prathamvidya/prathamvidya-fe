@@ -17,7 +17,7 @@ const ListingByJsonFile: React.FC<ListingByJsonFileProps> = (props) => {
           <div className='grid gap-5 mt-5 md:grid-cols-2 xl:grid-cols-3'>
             {jsonObject[categoryKey].map((item) => (
               <BrandCardWithShadow
-                className='!flex-row !justify-start rounded-lg text-secondaryLight/80 dark:text-secondaryDark bg-primaryDark/[15%] dark:bg-primaryLight/10 !py-3 !px-4'
+                className='!flex-row transition-all duration-500 hover:scale-105 !justify-start rounded-lg text-secondaryLight/80 dark:text-secondaryDark bg-primaryDark/[15%] dark:bg-primaryLight/10 !py-3 !px-4'
                 key={`${categoryKey}_${item.title}`}
               >
                 <div className='flex justify-between w-full'>

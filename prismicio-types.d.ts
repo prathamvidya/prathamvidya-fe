@@ -526,15 +526,26 @@ interface SettingsDocumentData {
   >;
 
   /**
-   * Apply Now Form Link field in *Settings*
+   * Apply Now Kishore Scholarship Form Link field in *Settings*
    *
    * - **Field Type**: Link
    * - **Placeholder**: Form Link to apply
-   * - **API ID Path**: settings.apply_now_form_link
+   * - **API ID Path**: settings.apply_now_kishore_form_link
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  apply_now_form_link: prismic.LinkField;
+  apply_now_kishore_form_link: prismic.LinkField;
+
+  /**
+   * Apply Now Tarun Scholarsh Form Link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.apply_now_tarun_scholarsh_form_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  apply_now_tarun_scholarsh_form_link: prismic.LinkField;
 
   /**
    * Contribution Payment Link field in *Settings*

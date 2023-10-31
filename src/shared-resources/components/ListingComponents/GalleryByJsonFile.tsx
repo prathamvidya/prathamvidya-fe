@@ -48,7 +48,7 @@ const GalleryByJsonFile: React.FC<GalleryByJsonFileProps> = (props) => {
                               }
                               if (image_index % 3 === 0) return 'w-full';
                               return 'w-1/2';
-                            })()} p-2`}
+                            })()} p-2 transition-all duration-500 hover:scale-100 scale-[97%]`}
                             onClick={() => {
                               setSelectedFile({
                                 category: categoryKey,
