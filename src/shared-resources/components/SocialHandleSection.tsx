@@ -6,11 +6,13 @@ interface SocialHandleSectionProps {}
 const SocialHandleSection: React.FC<SocialHandleSectionProps> = () => (
   <>
     <div className='!mt-12 md:!mt-20 text-center'>
-      <span className='text-lg capitalize md:text-2xl'>Our Social Handles</span>
+      <span className='text-lg capitalize md:text-2xl'>
+        Our Social Media Handles
+      </span>
     </div>
     <div className='flex flex-wrap justify-center gap-8 mx-auto w-fit'>
       {/* Facebook */}
-      <div className='relative h-full overflow-hidden transition-all duration-500 hover:scale-105 sm:opacity-50 grayscale hover:grayscale-0 hover:opacity-100 rounded-xl ring-1 ring-secondaryLight dark:ring-secondaryDark hover:shadow-nftHover hover:dark:shadow-nftDarkHover shadow-nft dark:shadow-nftDark w-fit '>
+      <div className='relative h-full overflow-hidden transition-all duration-500 hover:scale-105 rounded-xl ring-1 ring-secondaryLight dark:ring-secondaryDark hover:shadow-nftHover hover:dark:shadow-nftDarkHover shadow-nft dark:shadow-nftDark w-fit '>
         <div className='flex items-center gap-2 p-2 font-extrabold'>
           <Image
             alt='Facebook Logo'
@@ -38,7 +40,7 @@ const SocialHandleSection: React.FC<SocialHandleSectionProps> = () => (
       </div>
 
       {/* Instagram */}
-      <div className='h-full overflow-hidden transition-all duration-500 hover:scale-105 sm:opacity-50 grayscale hover:grayscale-0 hover:opacity-100 w-fit rounded-xl ring-1 ring-secondaryLight hover:shadow-nftHover hover:dark:shadow-nftDarkHover dark:ring-secondaryDark shadow-nft dark:shadow-nftDark'>
+      <div className='h-full overflow-hidden transition-all duration-500 hover:scale-105 w-fit rounded-xl ring-1 ring-secondaryLight hover:shadow-nftHover hover:dark:shadow-nftDarkHover dark:ring-secondaryDark shadow-nft dark:shadow-nftDark'>
         <div className='flex items-center gap-2 p-2 font-extrabold'>
           <Image
             alt='Instagram Logo'
@@ -64,7 +66,7 @@ const SocialHandleSection: React.FC<SocialHandleSectionProps> = () => (
       </div>
 
       {/* Twitter */}
-      <div className='h-full overflow-hidden transition-all duration-500 hover:scale-105 sm:opacity-50 grayscale hover:grayscale-0 hover:opacity-100 rounded-xl ring-1 ring-secondaryLight hover:shadow-nftHover hover:dark:shadow-nftDarkHover dark:ring-secondaryDark shadow-nft dark:shadow-nftDark w-fit'>
+      <div className='h-full overflow-hidden transition-all duration-500 hover:scale-105 rounded-xl ring-1 ring-secondaryLight hover:shadow-nftHover hover:dark:shadow-nftDarkHover dark:ring-secondaryDark shadow-nft dark:shadow-nftDark w-fit'>
         <div className='flex items-center gap-2 p-2 font-extrabold'>
           <Image
             alt='Twitter Logo'
