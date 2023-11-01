@@ -57,13 +57,15 @@ const DatedListCardWithImage: React.FC<DatedListCardProps> = (props) => {
                 {categoryKey}
               </div>
             )}
-            <div
-              className={`flex-grow-0 text-xs sm:text-sm overflow-hidden ${
-                singleLineTitle ? 'text-ellipsis whitespace-nowrap' : ''
-              } `}
-            >
-              {item.title}
-            </div>
+            {item.title && (
+              <div
+                className={`flex-grow-0 text-xs sm:text-sm overflow-hidden ${
+                  singleLineTitle ? 'text-ellipsis whitespace-nowrap' : ''
+                } `}
+              >
+                {item.title}
+              </div>
+            )}
             {item.date && (
               <div className='flex items-center justify-between'>
                 <div className='text-xs font-bold tracking-wider'>

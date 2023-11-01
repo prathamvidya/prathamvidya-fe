@@ -6,8 +6,10 @@ import { PrismicRichText } from '@prismicio/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import Marquee from 'react-fast-marquee';
 import { useSelector } from 'react-redux';
 import { prismicDataSelector } from 'redux/selectors/ui.selectors';
+import BrandCardWithShadow from 'shared-resources/components/BrandCardWithShadow';
 import ImageSlideshowTwoCols from 'shared-resources/components/Images/ImageSlideshowTwoCols';
 import DatedListCard from 'shared-resources/components/ListingComponents/Cards/DatedListCard';
 import DatedListCardWithImage from 'shared-resources/components/ListingComponents/Cards/DatedListCardWithImage';
@@ -23,7 +25,7 @@ const HomePageView: React.FC<HomePageProps> = () => {
   );
 
   return (
-    <div className='px-3 py-6 md:px-5 md:py-10'>
+    <div className='px-3 pt-6 md:px-5 md:pt-10'>
       <div className='flex flex-col space-y-6 md:space-y-10'>
         {prismicDataState?.settings?.hero_info_banner &&
           prismicDataState?.settings?.hero_slideshow_images && (
@@ -147,7 +149,48 @@ const HomePageView: React.FC<HomePageProps> = () => {
           )}
         </div>
 
-        <SocialHandleSection />
+        <SocialHandleSection suppressHydrationWarning />
+
+        <div
+          className={`relative z-10 -mx-3 md:-mx-5 rounded-lg p-5 top-20 bg-white dark:bg-black `}
+          // @ts-ignore
+          // eslint-disable-next-line react/no-unknown-property
+          supressHydrationWarning
+        >
+          <Marquee pauseOnHover pauseOnClick>
+            {prismicDataState?.settings.external_links &&
+              prismicDataState.settings.external_links.map((link) => (
+                <div key={link.link_title?.toString()!} className='mx-2'>
+                  <a
+                    href={(
+                      link.link_url as FilledLinkToWebField
+                    ).url.toString()}
+                    target='_blank'
+                    rel='noreferrer noopener'
+                    className='block w-full h-full'
+                  >
+                    <BrandCardWithShadow className='transition-all duration-500 hover:scale-100 scale-[0.97] w-44 h-36 rounded-lg border border-primaryDark/[15%] dark:border-primaryLight/10 dark:hover:border-secondaryDark hover:border-secondaryLight/95 bg-white dark:bg-black'>
+                      <div className='flex flex-col items-center justify-center w-full h-full'>
+                        <div className='flex flex-col items-center justify-center flex-shrink-0 object-cover'>
+                          <Image
+                            src={link.link_thumbnail.url!.toString()}
+                            alt=''
+                            height={72}
+                            width={80}
+                            className='relative top-0 left-0 !object-contain overflow-hidden rounded-md aspect-auto'
+                            unoptimized
+                          />
+                        </div>
+                        <p className='mt-2 text-xs text-center '>
+                          {link.link_title?.toString()!}
+                        </p>
+                      </div>
+                    </BrandCardWithShadow>
+                  </a>
+                </div>
+              ))}
+          </Marquee>
+        </div>
       </div>
     </div>
   );

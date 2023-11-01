@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
 
-interface SocialHandleSectionProps {}
+interface SocialHandleSectionProps {
+  suppressHydrationWarning: boolean;
+}
 
 const SocialHandleSection: React.FC<SocialHandleSectionProps> = () => (
   <>
